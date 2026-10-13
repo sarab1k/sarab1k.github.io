@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOAH DEV - الحسابات الرسمية</title>
+    <!-- خط عربي فاخر -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات العالمية Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* الوضع الداكن الملكي فقط */
+        :root {
+            --bg-dark: #0a0e17;        /* خلفية رئيسية داكنة */
+            --bg-card: #121824;        /* خلفية بطاقات داكنة */
+            --gold-dark: #c59b27;      /* ذهبي ملكي */
+            --gold-accent: #e5b839;    /* ذهبي للتوهج */
+            --text-main: #f8fafc;      /* نص أبيض */
+            --text-muted: #94a3b8;    /* نص رمادي */
+            --border-gold: #8a6d1b;   /* فواصل ذهبية */
+            --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 1rem;
+        }
+
+        .profile-container {
+            width: 100%;
+            max-width: 420px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 16px;
+            padding: 2.5rem 1.5rem;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+        }
+
+        /* تنسيق حركة الشعار من اليسار لليمين */
+        .logo-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            font-family: Arial, sans-serif;
+            margin-bottom: 0.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            direction: ltr; /* تضمن الانتقال الانسيابي الصحيح من اليسار لليمين */
+        }
+
+        /* نمط الحركة والانسيابية لكل حرف */
+        .logo-title span {
+            display: inline-block;
+            color: var(--gold-accent);
+            animation: sequentialFade 2.4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+            animation-delay: calc(0.18s * var(--i));
+        }
+
+        /* مسافة بين الكلمتين */
+        .logo-title .space {
+            width: 0.45em;
+        }
+
+        /* انميشن الاختفاء الكلي من اليسار لليمين */
+        @keyframes sequentialFade {
+            0%, 100% {
+                opacity: 1;
+                filter: blur(0px);
+                text-shadow: 0 0 14px rgba(229, 184, 57, 0.5);
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0; /* اختفاء كلي بنسبة 100% */
+                filter: blur(4px);
+                text-shadow: none;
+                transform: scale(0.92);
+            }
+        }
+
+        .sub-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* فاصل ذهبي متدرج */
+        .gold-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--border-gold), var(--gold-accent), var(--border-gold), transparent);
+            margin: 1rem 0 1.5rem 0;
+        }
+
+        /* قائمة أزرار الحسابات */
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 1.2rem;
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold-accent);
+            background-color: rgba(229, 184, 57, 0.1);
+            color: var(--gold-accent);
+            box-shadow: 0 4px 15px rgba(229, 184, 57, 0.15);
+        }
+
+        .link-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .social-icon {
+            font-size: 1.4rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* ألوان الأيقونات المخصصة لكل منصة */
+        .fa-whatsapp { color: #25d366; }
+        .fa-youtube { color: #ff0000; }
+        .fa-telegram { color: #229ed9; }
+        .fa-facebook { color: #1877f2; }
+        .fa-instagram { color: #e4405f; }
+        .fa-tiktok { color: #ffffff; }
+
+        .arrow-icon {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-link:hover .arrow-icon {
+            transform: translateX(-4px);
+            color: var(--gold-accent);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <!-- الشعار بتأثير الاختفاء الكلي الانسيابي من اليسار لليمين -->
+        <h1 class="logo-title">
+            <span style="--i:1;">N</span>
+            <span style="--i:2;">O</span>
+            <span style="--i:3;">A</span>
+            <span style="--i:4;">H</span>
+            <span class="space"></span>
+            <span style="--i:5;">D</span>
+            <span style="--i:6;">E</span>
+            <span style="--i:7;">V</span>
+        </h1>
+
+        <p class="sub-title">تواصل معي عبر الحسابات الرسمية التالية</p>
+
+        <!-- فاصل ذهبي -->
+        <div class="gold-divider"></div>
+
+        <!-- قائمة الحسابات -->
+        <div class="links-list">
+            <!-- واتساب -->
+            <a href="https://wa.me/9647816624037" target="_blank" class="social-link" rel="noopener noreferrer">
+                <div class="link-content">
+                    <i class="fa-brands fa-whatsapp social-icon"></i>
+                    <span>مراسلة واتساب</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- يوتيوب -->
+            <a href="https://youtube.com/@vv3j?si=nx1oUyMCRGzzfinq" target="_blank" class="social-link" rel="noopener noreferrer">
+                <div class="link-content">
+                    <i class="fa-brands fa-youtube social-icon"></i>
+                    <span>قناة اليوتيوب</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- تليجرام -->
+            <a href="https://t.me/xwb1k" target="_blank" class="social-link" rel="noopener noreferrer">
+                <div class="link-content">
+                    <i class="fa-brands fa-telegram social-icon"></i>
+                    <span>حساب التليجرام</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- فيسبوك -->
+            <a href="https://www.facebook.com/share/19tnHqJAxr/" target="_blank" class="social-link" rel="noopener noreferrer">
+                <div class="link-content">
+                    <i class="fa-brands fa-facebook social-icon"></i>
+                    <span>صفحة الفيسبوك</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- انستغرام -->
+            <a href="https://instagram.com/xwb1k" target="_blank" class="social-link" rel="noopener noreferrer">
+                <div class="link-content">
+                    <i class="fa-brands fa-instagram social-icon"></i>
+                    <span>حساب الإنستغرام</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- تيك توك -->
+            <a href="https://tiktok.com/@xwb1k" target="_blank" class="social-link" rel="noopener noreferrer">
+                <div class="link-content">
+                    <i class="fa-brands fa-tiktok social-icon"></i>
+                    <span>حساب التيك توك</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
