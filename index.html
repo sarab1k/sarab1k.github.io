@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كرت ست ورود</title>
+    <!-- استيراد خط عربي فخم متناسق مع التصميم -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Amiri', serif;
+        }
+
+        .card {
+            position: relative;
+            width: 420px;
+            height: 640px;
+            background: #2b2b2b;
+            border: 1px solid #d4af37;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 20px;
+            overflow: hidden;
+            background-image: linear-gradient(135deg, #2c2c2c 0%, #1f1f1f 100%);
+        }
+
+        /* الزخارف في الزوايا */
+        .corner-ornament {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        .top-right { top: 10px; right: 10px; transform: scaleX(-1); }
+        .top-left { top: 10px; left: 10px; }
+        .bottom-right { bottom: 10px; right: 10px; transform: scale(-1, -1); }
+        .bottom-left { bottom: 10px; left: 10px; transform: scaleY(-1); }
+
+        /* رأس الكرت (الاسم وعبارة للبنات فقط) */
+        .header {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .title-name {
+            font-size: 46px;
+            font-weight: 700;
+            color: #d4af37;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle-girls {
+            font-size: 26px;
+            font-weight: 700;
+            color: #d4af37;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* قائمة الصفوف الدراسية */
+        .grades-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .grade-item {
+            font-size: 22px;
+            color: #f0f0f0;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grade-item span {
+            color: #d4af37;
+            font-size: 18px;
+        }
+
+        /* تذييل الكرت (أيقونة الكتاب والموقع) */
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .book-icon {
+            width: 36px;
+            height: 36px;
+            fill: #d4af37;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+
+        .location {
+            font-size: 22px;
+            font-weight: 700;
+            color: #d4af37;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- الزخارف -->
+        <svg class="corner-ornament top-right" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 C50,100 0,50 0,0 Z" fill="none" stroke="#d4af37" stroke-width="2"/></svg>
+        <svg class="corner-ornament top-left" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 C50,100 0,50 0,0 Z" fill="none" stroke="#d4af37" stroke-width="2"/></svg>
+        <svg class="corner-ornament bottom-right" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 C50,100 0,50 0,0 Z" fill="none" stroke="#d4af37" stroke-width="2"/></svg>
+        <svg class="corner-ornament bottom-left" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 C50,100 0,50 0,0 Z" fill="none" stroke="#d4af37" stroke-width="2"/></svg>
+
+        <!-- القسم العلوي -->
+        <div class="header">
+            <h1 class="title-name">سِت وَرود</h1>
+            <div class="subtitle-girls">للبنات فقط</div>
+        </div>
+
+        <!-- الصفوف الدراسية -->
+        <div class="grades-list">
+            <div class="grade-item"><span>✦</span> الصف الأول الابتدائي</div>
+            <div class="grade-item"><span>✦</span> الصف الثاني الابتدائي</div>
+            <div class="grade-item"><span>✦</span> الصف الثالث الابتدائي</div>
+            <div class="grade-item"><span>✦</span> الصف الرابع الابتدائي</div>
+            <div class="grade-item"><span>✦</span> الصف الخامس الابتدائي</div>
+        </div>
+
+        <!-- القسم السفلي -->
+        <div class="footer">
+            <!-- أيقونة الكتاب -->
+            <svg class="book-icon" viewBox="0 0 24 24">
+                <path d="M19 2H5C3.89 2 3 2.89 3 4V20C3 21.11 3.89 22 5 22H19C20.11 22 21 21.11 21 20V4C21 2.89 20.11 2 19 2M11 20H5V4H11V20M19 20H13V4H19V20Z"/>
+            </svg>
+            <div class="location">العمارة كحلاء</div>
+        </div>
+    </div>
+
+</body>
+</html>
